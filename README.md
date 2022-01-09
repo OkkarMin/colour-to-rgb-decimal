@@ -69,7 +69,6 @@ REST API that when given colour in string format, return RGB decimal value.
 
 1. Must be able to support 1000 concurrent requests
 2. Response time must be < 1s
-3. Each client is limited to 30 API requests per minute, including routes that requires authentication
 
 ## API Endpoint Usage
 
