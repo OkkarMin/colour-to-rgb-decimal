@@ -110,7 +110,7 @@ Example:
 << {colour: 'blue', rgb: '(0,0,255)'}
 ```
 
-#### 3. Delete colour to RGB decimal mapping
+#### 4. Delete colour to RGB decimal mapping
 
 Example:
 
