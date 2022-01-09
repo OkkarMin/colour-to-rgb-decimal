@@ -53,7 +53,7 @@ REST API that when given colour in string format, return RGB decimal value.
 ```json
 {
   "colour": "{colour_name_in_string}",
-  "rgb": "{rgbDecimalCode}"
+  "rgb": "{rgb_decimal_code}"
 }
 
 // e.g
