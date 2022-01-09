@@ -47,15 +47,16 @@ REST API that when given colour in string format, return RGB decimal value.
 
 ### Non-functional requirements
 
-1. Must be able to support 1000 concurrent usage
+1. Must be able to support 1000 concurrent requests
 2. Response time must be < 500ms
+3. Each client is limited to 30 API requests per minute, including routes that requires authentication
 
 ## API Endpoint Usage
 
 | No. | Method | URI                           | Request Body                             | Requires Auth |
 | --- | ------ | ----------------------------- | ---------------------------------------- | :-----------: |
 | 1   | GET    | `/colours/{colour-in-string}` | -                                        |      ❌       |
-| 2   | POST   | `/colours`                    | `{colour: 'orange', rgb: '(255,165,0)'}` |      ✅       |
+| 2   | PUT    | `/colours`                    | `{colour: 'orange', rgb: '(255,165,0)'}` |      ✅       |
 
 #### 1. Get RGB decimal from colour
 
@@ -72,7 +73,7 @@ Example:
 Example:
 
 ```http
->> POST /colours {colour: 'orange', rgb: '(255,165,0)'}
+>> PUT /colours {colour: 'orange', rgb: '(255,165,0)'}
 
 << {colour: 'orange', rgb: '(255,165,0)'}
 ```
