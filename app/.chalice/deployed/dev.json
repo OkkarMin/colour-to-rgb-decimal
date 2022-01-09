@@ -1,0 +1,34 @@
+{
+  "resources": [
+    {
+      "name": "api_handler_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::058072509873:role/colour-to-rgb-decimal-dev-api_handler",
+      "role_name": "colour-to-rgb-decimal-dev-api_handler"
+    },
+    {
+      "name": "api_handler",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-southeast-1:058072509873:function:colour-to-rgb-decimal-dev"
+    },
+    {
+      "name": "bearer_auth_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::058072509873:role/colour-to-rgb-decimal-dev-bearer_auth",
+      "role_name": "colour-to-rgb-decimal-dev-bearer_auth"
+    },
+    {
+      "name": "bearer_auth",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-southeast-1:058072509873:function:colour-to-rgb-decimal-dev-bearer_auth"
+    },
+    {
+      "name": "rest_api",
+      "resource_type": "rest_api",
+      "rest_api_id": "dzkakt1r2b",
+      "rest_api_url": "https://dzkakt1r2b.execute-api.ap-southeast-1.amazonaws.com/api/"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
