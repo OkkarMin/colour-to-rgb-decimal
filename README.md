@@ -44,6 +44,20 @@ REST API that when given colour in string format, return RGB decimal value.
 - if colour string does not exists, do an upsert
 - if colour string exists but the decimal colour are different, do an upsert
 - if colour string exists and decimal colour are the same do nothing
+- added colour will always will be in the following format, no input verification is required
+
+```json
+{
+  "colour": "{colour_name_in_string}",
+  "rgb": "{rgbDecimalCode}"
+}
+
+// e.g
+{
+  "colour": "green",
+  "rgb": "(0,255,0)"
+}
+```
 
 ### Non-functional requirements
 
