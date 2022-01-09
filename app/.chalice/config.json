@@ -1,9 +1,14 @@
 {
   "version": "2.0",
-  "app_name": "app",
+  "app_name": "colour-to-rgb-decimal",
+  "environment_variables": {
+    "DDB_TABLE_NAME": "colour-to-rgb-decimal-table"
+  },
   "stages": {
     "dev": {
-      "api_gateway_stage": "api"
+      "api_gateway_stage": "api",
+      "autogen_policy": false,
+      "iam_policy_file": "iam_policy.json"
     }
   }
 }
