@@ -1,0 +1,17 @@
+Resources:
+  coloursDDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: colours-to-rgb-decimal-table
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+
+Outputs:
+  TableName:
+    Value: !Ref "coloursDDBTable"
+    Description: Name of the newly created DynamoDB table
