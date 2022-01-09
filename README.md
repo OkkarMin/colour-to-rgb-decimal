@@ -39,7 +39,11 @@ REST API that when given colour in string format, return RGB decimal value.
 
 - When there is a need for a space in colour string, it will be denoted by `-`. For example: `dark-red`
 
-#### 3. Authorized users will be allowed to add new colour string to RGB mapping
+#### 3. Clients will be able to get all colour string to RGB mapping
+
+#### 4. Clients will be able to get individual colour string to RGB mapping
+
+#### 5. Authorized users will be allowed to add new colour string to RGB mapping
 
 - if colour string does not exists, do an upsert
 - if colour string exists but the decimal colour are different, do an upsert
@@ -59,35 +63,59 @@ REST API that when given colour in string format, return RGB decimal value.
 }
 ```
 
+#### 6. Authorized users will be allowed to delete existing colour string to RGB mapping
+
 ### Non-functional requirements
 
 1. Must be able to support 1000 concurrent requests
-2. Response time must be < 500ms
+2. Response time must be < 1s
 3. Each client is limited to 30 API requests per minute, including routes that requires authentication
 
 ## API Endpoint Usage
 
 | No. | Method | URI                           | Request Body                             | Requires Auth |
 | --- | ------ | ----------------------------- | ---------------------------------------- | :-----------: |
-| 1   | GET    | `/colours/{colour-in-string}` | -                                        |      ❌       |
-| 2   | PUT    | `/colours`                    | `{colour: 'orange', rgb: '(255,165,0)'}` |      ✅       |
+| 1   | PUT    | `/colours`                    | `{colour: 'orange', rgb: '(255,165,0)'}` |      ✅       |
+| 2   | GET    | `/colours`                    | -                                        |      ❌       |
+| 3   | GET    | `/colours/{colour-in-string}` | -                                        |      ❌       |
+| 4   | DELETE | `/colours/{colour-in-string}` | -                                        |      ✅       |
 
-#### 1. Get RGB decimal from colour
-
-Example:
-
-```http
->> GET /colours/red
-
-<< {colour: 'red', rgb: '(255,0,0)'}
-```
-
-#### 2. Add new colour to RGB mapping
+#### 1. Add/Update colour to RGB decimal
 
 Example:
 
 ```http
->> PUT /colours {colour: 'orange', rgb: '(255,165,0)'}
+>> PUT /colours Bearer: true {colour: 'orange', rgb: '(255,165,0)'}
 
 << {colour: 'orange', rgb: '(255,165,0)'}
+```
+
+#### 2. Get all colour to RGB decimal
+
+Example:
+
+```http
+>> GET /colours
+
+<< [ {colour: 'red', rgb: '(255,0,0)'}, {colour: 'green', rgb: '(0,255,0)'}, ... ]
+```
+
+#### 3. Get RGB decimal from colour
+
+Example:
+
+```http
+>> GET /colours/blue
+
+<< {colour: 'blue', rgb: '(0,0,255)'}
+```
+
+#### 3. Delete colour to RGB decimal mapping
+
+Example:
+
+```http
+>> DELETE /colours/blue
+
+<< {"message": "Successfully deleted blue"}
 ```
