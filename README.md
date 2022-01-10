@@ -75,7 +75,32 @@ REST API that when given colour in string format, return RGB decimal value.
 
 #### 3. Clients will be able to get all colour string to RGB mapping
 
+- Response will be a list containing objects of existing colour to RGB mapping
+
+```json
+[
+  {
+    "colour": "orange",
+    "rgb": "(255,165,0)"
+  },
+  {
+    "colour": "red",
+    "rgb": "(255,0,0)"
+  },
+  ...
+]
+```
+
 #### 4. Clients will be able to get individual colour string to RGB mapping
+
+- Response will be an object which represent a colour to RGB mapping
+
+```json
+{
+  "colour": "red",
+  "rgb": "(255,0,0)"
+}
+```
 
 #### 5. Authorized users will be allowed to add new colour string to RGB mapping
 
@@ -170,4 +195,4 @@ Could add a caching layer in the system. Either before hitting the dynamoDB or a
 
 Only basic cloudwatch logs for now.
 
-Could add workers to process the usage pattern of the API
+Could add workers to process the usage pattern of the API.
