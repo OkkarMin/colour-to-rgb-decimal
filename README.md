@@ -145,11 +145,21 @@ REST API that when given colour in string format, return RGB decimal value.
 #### 1. Add/Update colour to RGB decimal
 
 ```http
->> PUT /colours Bearer: true {colour: 'orange', rgb: '(255,165,0)'}
+https://dzkakt1r2b.execute-api.ap-southeast-1.amazonaws.com/api/colours
+```
+
+Bearer Token -> `'allow'` (without quotes `'`)
+
+```http
+>> PUT /colours authorization: Bearer allow {colour: 'orange', rgb: '(255,165,0)'}
 << {colour: 'orange', rgb: '(255,165,0)'}
 ```
 
 #### 2. Get all colour to RGB decimal
+
+```http
+https://dzkakt1r2b.execute-api.ap-southeast-1.amazonaws.com/api/colours
+```
 
 ```http
 >> GET /colours
@@ -159,6 +169,10 @@ REST API that when given colour in string format, return RGB decimal value.
 #### 3. Get RGB decimal from colour
 
 ```http
+https://dzkakt1r2b.execute-api.ap-southeast-1.amazonaws.com/api/colours/blue
+```
+
+```http
 >> GET /colours/blue
 << {colour: 'blue', rgb: '(0,0,255)'}
 ```
@@ -166,7 +180,13 @@ REST API that when given colour in string format, return RGB decimal value.
 #### 4. Delete colour to RGB decimal mapping
 
 ```http
->> DELETE /colours/blue
+https://dzkakt1r2b.execute-api.ap-southeast-1.amazonaws.com/api/colours/blue
+```
+
+Bearer Token -> `'allow'` (without quotes `'`)
+
+```http
+>> DELETE /colours/blue authorization: Bearer allow
 << {"message": "Successfully deleted blue"}
 ```
 
