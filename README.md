@@ -38,9 +38,12 @@ REST API that when given colour in string format, return RGB decimal value.
   - [4. Delete colour to RGB decimal mapping](#4-delete-colour-to-rgb-decimal-mapping)
 - [Tech Stack](#tech-stack)
 - [Architecture Diagram](#architecture-diagram)
+- [Running Locally](#running-locally)
+- [Deployment](#deployment)
 - [Future Improvement](#future-improvement)
   - [1. Caching](#1-caching)
   - [2. Monitoring / Logging / Analytics](#2-monitoring--logging--analytics)
+  - [3. Deployment Pipeline](#3-deployment-pipeline)
 
 </details>
 
@@ -181,6 +184,26 @@ REST API that when given colour in string format, return RGB decimal value.
 
 ![system architecture diagram](architecture.drawio.png)
 
+## Running locally
+
+Requirements:
+
+- Python 3.7 and above
+- AWS credentials configured in `~/.aws/credentials`
+
+```bash
+pip install chalice
+cd app
+chalice local
+```
+
+## Deployment
+
+```bash
+cd app
+chalice deploy
+```
+
 ## Future Improvement
 
 #### 1. Caching
@@ -196,3 +219,7 @@ Could add a caching layer in the system. Either before hitting the dynamoDB or a
 Only basic cloudwatch logs for now.
 
 Could add workers to process the usage pattern of the API.
+
+#### 3. Deployment Pipeline
+
+Could setup a deployment pipeline to automatically push changeset to production
